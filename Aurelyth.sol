@@ -111,7 +111,7 @@ contract Aurelyth is ERC721A, Ownable, Pausable, ReentrancyGuard, ERC2981 {
     }
 
     //withdraw Funds
-    function withdrawFunds() external onlyOwner nonReentrant { 
+    function withdrawFunds() external nonReentrant onlyOwner { 
         uint256 balance = address(this).balance;
         Address.sendValue(payable(msg.sender), balance);
         //For the multi sig wallet
